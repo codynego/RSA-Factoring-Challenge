@@ -8,10 +8,3 @@ def factorize(n):
         if is_prime(factor):
             fact.append(factor)
     return (fact)
-
-
-a = 831713
-b = 795827
-mul = a * b
-print(mul)
-print(factorize(mul))

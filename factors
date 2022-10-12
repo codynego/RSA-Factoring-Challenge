@@ -15,4 +15,4 @@ if __name__ == "__main__":
             number = int(line)
             factor = find_factor(number)
 
-            print(f"{number}={factor[0]} * {factor[-1]}")
+            print(f"{number}={factor[0]}*{factor[-1]}")

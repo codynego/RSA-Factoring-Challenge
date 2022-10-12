@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import sys
-import os
-from factorize import factorize
+from find_factor import find_factor
 if __name__ == "__main__":
     lenght = len(sys.argv)
     if lenght < 2:
@@ -14,6 +13,7 @@ if __name__ == "__main__":
         for line in file:
             line = line.strip()
             number = int(line)
-            factor = factorize(number)
+            factor = find_factor(number)
 
-            print(f"{number}={factor[0]} * {factor[-1]}")
+            print(f"{number}={factor[0]}*{factor[-1]}")
+            break

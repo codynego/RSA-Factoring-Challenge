@@ -1,21 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-long int* find_factor(int n);
+long long int* find_factor(unsigned long long int n);
 
 
-long int* find_factor(int n)
+long long int* find_factor(unsigned long long int n)
 {
-	int m = n / 2;
-	long int *p;
-	int j = 0;
-	p = malloc(m * sizeof(long int));
-	for (long int i = 2; i <= m; i++)
+	long long int m = n / 2;
+	long long int *p;
+	long long int j = 0;
+	int b = 2;
+	p = malloc(b * sizeof(long long int));
+	for (long long int i = 2; i <= m; i++)
 	{
 		if (n % i == 0)
 		{
+			p = realloc(p, b * sizeof(long long int));
 			*(p + j) = i;
 			j++;
+			b++;
 		}
 	}
 	*(p + j) = '\0';
@@ -24,7 +27,7 @@ long int* find_factor(int n)
 }
 
 
-long int main(void)
+long long int main(void)
 {
 	//int arr[];
 	/*int *p;
@@ -36,14 +39,14 @@ long int main(void)
 		*(p + i) = i;
 		n++;
 	}*/
-	long int n = 7637;
-	long int *p = NULL;
-       	p = malloc(n * sizeof(long int));
+	unsigned long long int n = 1789664206425587715;
+	long long int *p;
+       	//p = malloc(n * sizeof(long long int));
 	p = find_factor(n);
 
-	for (long int j = 0; *(p + j) != '\0'; j++)
+	for (long long int j = 0; *(p + j) != '\0'; j++)
 	{
-		printf("%ld ", *(p + j));
+		printf("%lld ", *(p + j));
 	}
 	printf("\n");
 }
