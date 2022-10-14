@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "file.h"
 
 long int* find_factor(long long int n)
 {
@@ -12,7 +13,7 @@ long int* find_factor(long long int n)
 	{
 		if (n % i == 0)
 		{
-			p = realloc(p, b * sizeof(long long int));
+			p = realloc(p,b * sizeof(long long int));
 			*(p + j) = i;
 			j++;
 			b++;
@@ -24,10 +25,44 @@ long int* find_factor(long long int n)
 }
 
 
-long int main(void)
+int *find_prime(int n)
+{
+	int *p;
+	int j = 0;
+	p = malloc(n * sizeof(int));
+
+	for (int i = 2; i < n; i++)
+	{
+		if (i == 2 || i == 3 || i == 5)
+		{
+			//p = realloc(p,2 * sizeof(int));
+			*(p + j) = i;
+			j++;
+		}
+		else
+		{
+			if (i % 2 == 0 || i % 3 == 0 || i % 5 == 0)
+			{
+			//	p = realloc(p,2 * sizeof(int));
+				continue;
+			}
+			else
+			{
+				*(p + j) = i;
+				j++;
+			}
+		}
+	}
+	*(p + j) = '\0';
+
+	return p;
+}
+
+
+/*long int main(void)
 {
 	//int arr[];
-	/*int *p;
+	int *p;
 	p = malloc(100 * sizeof(int));
 	int n = 0;
 
@@ -35,8 +70,9 @@ long int main(void)
 	{
 		*(p + i) = i;
 		n++;
-	}*/
-	long long int n = 1789664206425587715;
+	}
+	
+	long long int n = 45425587715;
 	long int *p;
        	//p = malloc(n * sizeof(long long int));
 	p = find_factor(n);
@@ -46,5 +82,5 @@ long int main(void)
 		printf("%ld ", *(p + j));
 	}
 	printf("\n");
-}
+}*/
 

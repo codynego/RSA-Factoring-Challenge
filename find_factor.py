@@ -7,3 +7,6 @@ def find_factor(n):
         if n % i == 0:
             factors.append(i)
     return factors
+
+
+print(find_factor(4425587715))
