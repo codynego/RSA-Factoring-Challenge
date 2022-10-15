@@ -19,7 +19,7 @@ def main():
             factor.smallest_divisor.argtypes = [ctypes.c_long]
             factor.smallest_divisor(number)
 
-            print(f"{number}={factor.smallest_divisor(number)}*{number // factor.smallest_divisor(number)}")
+            print(f"{number}={number // factor.smallest_divisor(number)}*{factor.smallest_divisor(number)}")
 
 
 if __name__ == "__main__":
