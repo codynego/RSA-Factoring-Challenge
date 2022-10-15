@@ -7,16 +7,12 @@ int smallest_divisor(long int n)
 		return 2;
 	}
 	int f = 3;
-	while (((4+f) * (f+4)) <= n)
+	while (((2+f) * (f+2)) <= n)
 	{
-		f = f + 4;
+		f = f + 2;
 		if (n%(f - 2) == 0)
 		{
 			return f - 2;
-		}
-		if (n%((f - 4)) == 0)
-		{
-			return f - 4;
 		}
 		if (n%f == 0)
 		{
@@ -26,14 +22,13 @@ int smallest_divisor(long int n)
 		{
 			return f + 2;
 		}
-		if (n%(f+4) == 0)
-		{
-			return f + 4;
-		}
 		else
 		{
 		f += 2;
 		}
 	}
-	return 1;
+	if (n%2 != 0 || n%3 != 0 || n%5 != 0)
+	{
+		return 1;
+	}
 }
