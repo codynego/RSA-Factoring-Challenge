@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 import sys
+import ctypes
+from unix_time import unix_time
 from find_factor import find_factor
-if __name__ == "__main__":
+def main():
     lenght = len(sys.argv)
     if lenght < 2:
         print("USAGE: ./factor <file_name>")
@@ -13,6 +15,8 @@ if __name__ == "__main__":
         for line in file:
             line = line.strip()
             number = int(line)
-            factor = find_factor(number)
+            factor = ctypes.CDLL("./libfind_factor.so")
+            factor.smallest_divisor.argtypes = [ctypes.c_long]
+            factor.smallest_divisor(number)
 
-            print(f"{number}={factor[0]}*{factor[-1]}")
+            print(f"{number}={factor.smallest_divisor(number)}*{number // factor.smallest_divisor(number)}")
