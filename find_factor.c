@@ -27,8 +27,13 @@ int smallest_divisor(long int n)
 		f += 2;
 		}
 	}
-	if (n%2 != 0 || n%3 != 0 || n%5 != 0)
+	if (n < 25)
 	{
+		if (n % 3 == 0)
+		{
+			return 3;
+		}
 		return 1;
 	}
+
 }
